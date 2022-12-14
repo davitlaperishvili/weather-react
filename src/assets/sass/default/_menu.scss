@@ -1,0 +1,277 @@
+// Main menu
+nav.navigation{
+	@media(max-width: 1024px){
+		display: none;
+	}
+	> ul{
+		@extend .no-list;
+		display: flex;
+		margin-right: 100px;
+		> li{
+			margin-right: 55px;
+			padding: 10px 0;
+			&:last-child{
+				margin-right: 0;
+			}
+			> a{
+				@extend .trans-4;
+				color: $cwhite;
+				font-size: 16px;
+				font-family: $ffbase;
+				font-weight: 400;
+			}
+			&.menu-item-has-children{
+				display: flex;
+				align-items: center;
+				&:after{
+					content: "\ea4d";
+					display: block;
+					margin-left: 8px;
+					font-family: $ffremix;
+					font-weight: 400;
+					font-size: 16px;
+					color: $cwhite;
+				}
+			}
+			&.current-menu-item,
+			&.current-menu-ancestor,
+			&:hover{
+				> a{
+					color: $cred;
+				}
+				&:after{
+					color: $cred;
+				}
+			}
+			ul{
+				position: absolute;
+				width: 220px;
+				left: -10px;
+				top: 100%;
+				padding: 15px 20px;
+				transition-delay: 0.2s;
+				background-color: $clight;
+				border-radius: $bdrm;
+				visibility: hidden;
+				opacity: 0;
+				@media(max-width: 1200px){
+					padding: 15px 20px;
+				}
+				&.rtl{
+					left: auto;
+					right: -10px;
+				}
+				li{
+					position: relative;
+					padding: 0;
+					a{
+						@extend .trans-4;
+						display: block;
+						position: relative;
+						padding: 10px 0;
+						color: $cbase;
+						font-size: 14px;
+					}
+					&.menu-item-has-children{
+						display: flex;
+						align-items: center;
+						&:after{
+							content: "\ea4d";
+							display: block;
+							margin-left: 8px;
+							font-family: $ffremix;
+							font-weight: 400;
+							font-size: 16px;
+							color: $cbase;
+							transform: rotate(-90deg);
+						}
+					}
+					&.current-menu-item,
+					&.current-menu-ancestor,
+					&:hover{
+						> a{
+							color: $ccorp;
+						}
+					}
+					ul{
+						left: 100%;
+						top: -15px;
+						&.rtl{
+							left: auto;
+							right: 100%;
+						}
+					}
+					&:hover{
+						ul{
+							visibility: visible;
+							opacity: 1;
+						}
+					}
+				}
+			}
+			&:hover{
+				> ul{
+					visibility: visible;
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+// Main menu
+// Responsive menu
+div.resp_menu{
+	display: none;
+	position: fixed;
+	width: 35px;
+	height: 35px;
+	top: 20px;
+	right: 15px;
+	z-index: 1000;
+	@media(max-width: 1024px){
+		display: block;
+	}
+	div.resp_menu_toggle{
+		@extend .trans-all-4;
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		background-color: $ccorp;
+		border-radius: $bdrm;
+		cursor: pointer;
+		div{
+			position: absolute;
+			width: 25px;
+			height: 2px;
+			top: 50%;
+			right: 10px;
+			background-color: $cwhite;
+			&:first-child{
+				margin-top: -7px;
+			}
+			&:last-child{
+				margin-top: 7px;
+			}
+		}
+		&.resp_menu_toggled{
+			border-radius: $bdrm $bdrm $bdrn $bdrn;
+			div{
+				&:first-child,
+				&:last-child{
+					opacity: 0;
+				}
+				&:nth-child(2){
+					transform: rotate(45deg);
+				}
+				&:nth-child(3){
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
+	div.resp_menu_ul{
+		position: fixed;
+		width: 90vw;
+		max-height: 80vh;
+		top: 75px;
+		right: 0;
+		transform: translateX(100%);
+		padding: 10px 25px;
+		background-color: $ccorp;
+		border-radius: $bdrm $bdrn $bdrm $bdrm;
+		transition: 0.6s;
+		overflow-y: scroll;
+		&.is-active{
+			transform: translateX(0);
+		}
+		> ul{
+			@extend .no-list;
+			> li{
+				position: relative;
+				padding: 20px 5px;
+				border-bottom: 1px solid rgba($cwhite, 0.1);
+				&:last-child{
+					border-bottom: none;
+				}
+				> em{
+					display: none;
+				}
+				> a{
+					display: block;
+					color: $cwhite;
+				}
+				div.plus_minus{
+					@extend .trans-all-4;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					width: 45px;
+					height: 45px;
+					top: 9px;
+					right: 0;
+					background-color: $ccorp;
+					em{
+						color: $cwhite;
+						font-size: 30px;
+						transition: 0.4s;
+					}
+					cursor: pointer;
+					div.plus,
+					div.minus{
+						position: absolute;
+						width: 11px;
+						height: 1px;
+						background-color: $cwhite;
+						left: 50%;
+						top: 15px;
+						transform: translateX(0%) rotate(130deg);
+					}
+					div.minus{
+						transform: translateX(-55%) rotate(55deg);
+					}
+					&.plus_minus_toggled{
+						em{
+							transform: rotate(180deg);
+						}
+					}
+				}
+				ul{
+					display: none;
+					padding: 10px 0 0 5px;
+					li{
+						position: relative;
+						padding: 15px 0;
+						&:before{
+							display: block;
+							position: absolute;
+							content: "";
+							left: 0;
+							top: 25px;
+							width: 5px;
+							height: 1px;
+							background-color: $cwhite;
+						}
+						a{
+							display: block;
+							margin-left: 15px;
+							color: $cwhite;
+						}
+						ul{
+							padding-left: 15px;
+						}
+						div.plus_minus{
+							height: 20px;
+							top: 15px;
+							div.plus,
+							div.minus{
+								top: 10px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+// Responsive menu

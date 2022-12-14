@@ -1,0 +1,136 @@
+// Tags
+body{
+	color: $cbase;
+	font-size: 14px;
+	font-family: $ffbase, sans-serif;
+	font-weight: 400;
+	line-height: 1.5;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-ms-overflow-style: scrollbar;
+	-webkit-tap-highlight-color: rgba($cblack, 0);
+}
+a{
+	color: $ccorp;
+	text-decoration: none;
+	outline: none;
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	&:hover,
+	&:focus{
+		text-decoration: none;
+	}
+	&:hover{
+		color: $cbase;
+	}
+	&:focus{
+		color: $ccorp;
+	}
+}
+// Tags
+// Map
+div.map{
+	width: 100%;
+	height: 400px;
+}
+// Map
+// SVG stroke for animation
+svg.dashed{
+	fill: none;
+	path{
+		transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+	}
+	&:hover{
+		path{
+			stroke-dashoffset: 0 !important;
+		}
+	}
+}
+// SVG stroke for animation
+// Socials
+div.socials{
+	ul{
+		@extend .no-list;
+		display: flex;
+		li{
+			margin-right: 15px;
+			&:last-child{
+				margin-right: 0;
+			}
+			a{
+				@extend .flex;
+				width: 20px;
+				height: 20px;
+				color: $ccorp;
+				font-size: 15px;
+				&:hover{
+					color: $cbase;
+				}
+			}
+		}
+	}
+}
+// Socials
+// Container
+div.container{
+	width: 1400px;
+	margin: 0 auto;
+	@media(max-width: 1680px){
+		width: 1300px;
+	}
+	@media(max-width: 1440px){
+		width: 1200px;
+	}
+	@media(max-width: 1366px){
+		width: 1100px;
+	}
+	@media(max-width: 1280px){
+		width: 970px;
+	}
+	@media(max-width: 1024px){
+		width: auto;
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+// Container
+
+// show more
+.morecontent span {
+	display: none;
+}
+.morelink {
+	display: block;
+	color: $cbase;
+	font-size: 12px;
+	&:hover {
+		color: $cred;
+	}
+}
+
+// Mobile fixed button
+.mobile_fixed_button {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	display: none;
+	z-index: 9999;
+	@media (max-width: 1024px) {
+		display: block;
+	}
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $cwhite;
+		text-transform: uppercase;
+		font-size: 18px;
+		width: 100%;
+		padding: 10px 0;
+		background: $ccorp;
+	}
+}
