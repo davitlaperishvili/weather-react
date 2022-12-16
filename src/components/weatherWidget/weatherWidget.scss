@@ -1,0 +1,70 @@
+@import "../../index.scss";
+.widget_container{
+    width: 100%;
+    border-radius: 30px;
+    .widget_items{
+        display: grid;
+        grid-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+        .widget_item{
+            padding: 30px;
+            border-radius: 20px;
+            color: $cwhite;
+            background-color: rgba($cblack, 0.4);
+            .widget_location{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+            .widget_top{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 30px;
+                .weather_icon{
+                    img{
+                        width: 90px;
+                    }
+                }
+                .weather_info{
+                    .celsius{
+                        font-weight: 700;
+                        font-size: 64px;
+                        line-height: 81px;
+                        text-transform: capitalize;
+                        background: linear-gradient(180deg, #C1CFDB 54.68%, rgba(255, 255, 255, 0) 187.46%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        text-fill-color: transparent;
+                        sup{
+                            font-size: inherit;
+                            background: linear-gradient(180deg, #C1CFDB 54.68%, rgba(255, 255, 255, 0) 187.46%);
+                            background-clip: text;
+                            top: -15px
+                        }
+                    }
+                }
+            }
+            .widget_bottom{
+                .weather_additional_info{
+                    ul{
+                        @extend .no-list;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        li{
+                            display: flex;
+                            flex-direction: column;
+                            gap: 10px;
+                            img{
+                                max-width: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

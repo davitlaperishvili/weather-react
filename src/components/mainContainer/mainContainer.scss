@@ -1,0 +1,11 @@
+.main_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    min-height: 700px;
+    background-image: url("../../../public/images/clouds_bg.jpg");
+    background-size: cover;
+    padding: 100px 200px;
+}
