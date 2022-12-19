@@ -1,14 +1,15 @@
 import React from "react";
 
-export default function WidgetItem(props) {
-    const { cityName, countryName } = props;
+export default function WidgetItem({ widgetLocation, widgetCurrent }) {
+    const { name, country } = widgetLocation;
+    const { temp_c, condition, wind_mph, cloud } = widgetCurrent;
     return (
         <div className="widget_item">
             <div className="widget_location">
                 <div className="location">
-                    {cityName} / {countryName}
+                    {name} / {country}
                 </div>
-                <div className="time">15:30 AM</div>
+                {/* <div className="time">15:30 AM</div> */}
             </div>
             <div className="widget_top">
                 <div className="weather_icon">
@@ -16,9 +17,9 @@ export default function WidgetItem(props) {
                 </div>
                 <div className="weather_info">
                     <div className="celsius">
-                        32 <sup>º</sup>
+                        {temp_c} <sup>º</sup>
                     </div>
-                    <div className="desc">sunny cloudy</div>
+                    <div className="desc">{condition.text}</div>
                 </div>
             </div>
             <div className="widget_bottom">
@@ -26,11 +27,11 @@ export default function WidgetItem(props) {
                     <ul>
                         <li>
                             <img src="/weather-react/images/wind.png" alt="" />
-                            <span>16 km/h</span>
+                            <span>{wind_mph} mp/h</span>
                         </li>
                         <li>
                             <img src="/weather-react/images/cloud.png" alt="" />
-                            <span>83 %</span>
+                            <span>{cloud} %</span>
                         </li>
                         <li>
                             <img src="/weather-react/images/sun.png" alt="" />

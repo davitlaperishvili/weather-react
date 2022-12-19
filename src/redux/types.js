@@ -1,0 +1,1 @@
+export const WIDGETS_LIST = "APP/WIDGETS_LIST";
