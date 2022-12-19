@@ -1,10 +1,12 @@
 import React from "react";
+import DeleteWidget from "../deleteWidget/DeleteWidget";
 
 export default function WidgetItem({ widgetLocation, widgetCurrent }) {
     const { name, country } = widgetLocation;
     const { temp_c, condition, wind_mph, cloud } = widgetCurrent;
     return (
         <div className="widget_item">
+            <DeleteWidget id={name} />
             <div className="widget_location">
                 <div className="location">
                     {name} / {country}

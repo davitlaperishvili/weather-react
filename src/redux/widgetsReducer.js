@@ -5,7 +5,7 @@ let initialState = initialWidgets ? [...JSON.parse(initialWidgets)] : [];
 export const widgetsReducer = (state = initialState, action) => {
     switch (action.type) {
         case WIDGETS_LIST:
-            return [...state, action.payload];
+            return [...action.payload];
         default:
             return state;
     }

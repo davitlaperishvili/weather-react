@@ -1,8 +1,9 @@
 import { WIDGETS_LIST } from "./types";
 
-export function changeWidgetsList(widgetItemObject) {
+export function changeWidgetsList() {
+    const widgetObjects = localStorage.getItem("widgets") ? JSON.parse(localStorage.getItem("widgets")) : [];
     return {
         type: WIDGETS_LIST,
-        payload: widgetItemObject,
+        payload: widgetObjects,
     };
 }

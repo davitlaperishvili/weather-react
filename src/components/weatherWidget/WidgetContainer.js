@@ -16,12 +16,12 @@ export default function WidgetContainer() {
                 navigator.geolocation.getCurrentPosition(async (result) => {
                     const widget = await requestInfo(`${result.coords.latitude},${result.coords.longitude}`);
                     if (!localStorage.getItem("widgets")) localStorage.setItem("widgets", JSON.stringify([widget]));
-                    // dispatch(changeWidgetsList(widget));
+                    dispatch(changeWidgetsList());
                 });
             }
         }
         fetchData();
-    }, [dispatch]);
+    }, []);
     let state = useSelector((state) => {
         return state;
     });
