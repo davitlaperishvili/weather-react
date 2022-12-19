@@ -12,12 +12,16 @@ export default function WidgetContainer() {
     useEffect(() => {
         async function fetchData() {
             // You can await here
-            const widget = await requestInfo("Tbilisi");
-            dispatch(changeWidgetsList(widget));
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(async (result) => {
+                    const widget = await requestInfo(`${result.coords.latitude},${result.coords.longitude}`);
+                    if (!localStorage.getItem("widgets")) localStorage.setItem("widgets", JSON.stringify([widget]));
+                    // dispatch(changeWidgetsList(widget));
+                });
+            }
         }
         fetchData();
-    }, []);
-
+    }, [dispatch]);
     let state = useSelector((state) => {
         return state;
     });

@@ -24,9 +24,8 @@ export default function AddWidget(props) {
                 cityName: "",
             });
             const widget = await requestInfo(formValue.cityName);
+            localStorage.setItem("widgets", JSON.stringify([...JSON.parse(localStorage.getItem("widgets")), widget]));
             dispatch(changeWidgetsList(widget));
-            console.log(props.widgets.widgets);
-            localStorage.setItem("widgets", JSON.stringify([...props.widgets.widgets]));
         } else {
             setFormError(true);
         }
