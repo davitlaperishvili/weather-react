@@ -17,7 +17,11 @@ export default function DeleteWidget({ id }) {
     }
     return (
         <div className="delete_widget" onClick={handleDeleteWidget}>
-            <span>X</span>
+            <div className="outer">
+                <div className="inner">
+                    <label>Remove</label>
+                </div>
+            </div>
         </div>
     );
 }
