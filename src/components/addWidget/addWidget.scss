@@ -1,3 +1,18 @@
+@import "../../index.scss";
 .add_widget{
-    
+    .form_item{
+        input{
+            background-color: rgba($cblack, 0.4);
+            border: none;
+            color: $cwhite;
+            &::placeholder{
+                color: $cwhite;
+            }
+            &.error{
+                &::placeholder{
+                    color: $cred;
+                }
+            }
+        }
+    }    
 }
