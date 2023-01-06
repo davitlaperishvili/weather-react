@@ -3,9 +3,18 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     min-height: 700px;
     background-image: url("../../../public/images/clouds_bg.jpg");
     background-size: cover;
     padding: 100px 200px;
+    @media(max-width: 1366px){
+        padding: 60px 100px;
+    }
+    @media(max-width: 768px){
+        padding: 50px;
+    }
+    @media(max-width: 420px){
+        padding: 30px 15px;
+    }
 }
